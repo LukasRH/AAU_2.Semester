@@ -16,7 +16,6 @@ namespace OOP2017_Kursusgang_01_Template
             //opg3.Start();
             //opg4.start
             opg5.start();
-
         }
     }
 }
