@@ -1,1 +1,2 @@
 c:\users\thomas\documents\visual studio 2015\Projects\OOP2017 Kursusgang 01 Demonstration\OOP2017 Kursusgang 01 Demonstration\bin\Debug\OOP2017 Kursusgang 01 Demonstration.exe.config
+D:\GitHub\AAU_2.Semester\OOP\Lektioner\OOP2017 Kursusgang 01 Demonstration\OOP2017 Kursusgang 01 Demonstration\bin\Debug\OOP2017 Kursusgang 01 Demonstration.exe.config
