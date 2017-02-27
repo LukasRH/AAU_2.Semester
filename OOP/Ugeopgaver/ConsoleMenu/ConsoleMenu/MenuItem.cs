@@ -19,7 +19,8 @@ namespace ConsoleMenu
 
         public void Select()
         {
-            
+            Console.Clear();
+            Console.WriteLine($"{this.Title}\n\n{this.Content}\n\nPress Enter to return");
         }
     }
 }

@@ -25,15 +25,17 @@ namespace ConsoleMenu
         public void Start()
         {
             _running = true;
+            Console.CursorVisible = false;
+            DrawMenu();
             do
             {
-                DrawMenu();
                 HandleInput();
             } while (_running);
         }
 
         private  void DrawMenu()
         {
+            Console.Clear();
             Console.Title = this.MenuTitle;
             CenterText(this.MenuTitle);
 
@@ -41,12 +43,8 @@ namespace ConsoleMenu
             {
                 CenterText(item.Title);
             }
-        }
 
-        private static void CenterText(String text)
-        {
-            Console.Write(new string(' ', (Console.WindowWidth - text.Length) / 2));
-            Console.WriteLine(text);
+            HighlightText(_MenuItems[_MenuItems.Count-1].Title, _MenuItems.Count);
         }
 
         private void HandleInput()
@@ -66,6 +64,8 @@ namespace ConsoleMenu
                     break;
                 case ConsoleKey.Enter:
                     GetSelectedMenuItem().Select();
+                    Console.ReadLine();
+                    DrawMenu();
                     break;
                 default:
                     break;
@@ -74,17 +74,52 @@ namespace ConsoleMenu
 
         private void MoveUp()
         {
-
+            if (Console.CursorTop - 2 >= 0)
+            {
+                RemoveHighlight(_MenuItems[Console.CursorTop - 1].Title, Console.CursorTop);
+                HighlightText(_MenuItems[Console.CursorTop - 2].Title, Console.CursorTop - 1);
+            }
         }
 
         private void MoveDown()
         {
-
+            if (Console.CursorTop < _MenuItems.Count)
+            {
+                RemoveHighlight(_MenuItems[Console.CursorTop-1].Title, Console.CursorTop);
+                HighlightText(_MenuItems[Console.CursorTop].Title, Console.CursorTop + 1);
+            }
         }
 
         private MenuItem GetSelectedMenuItem()
         {
-            return new MenuItem("Test", "Test");
+            return _MenuItems[Console.CursorTop-1];
+        }
+
+        private static void CenterText(String text)
+        {
+            Console.Write(new string(' ', (Console.WindowWidth - text.Length) / 2));
+            Console.WriteLine(text);
+        }
+
+        private static void HighlightText(string text, int pos)
+        {
+            int StartingPoint = (Console.WindowWidth - text.Length) / 2;
+            int EndPoint = StartingPoint + text.Length;
+            Console.SetCursorPosition(StartingPoint, pos);
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Write(text);
+            Console.ResetColor();
+        }
+        private static void RemoveHighlight(string text, int pos)
+        {
+            int StartingPoint = (Console.WindowWidth - text.Length) / 2;
+            int EndPoint = StartingPoint + text.Length;
+            Console.SetCursorPosition(StartingPoint, pos);
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(text);
+            Console.ResetColor();
         }
     }
 }
