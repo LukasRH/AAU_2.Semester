@@ -116,10 +116,7 @@ namespace ConsoleMenu
             int StartingPoint = (Console.WindowWidth - text.Length) / 2;
             int EndPoint = StartingPoint + text.Length;
             Console.SetCursorPosition(StartingPoint, pos);
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.ForegroundColor = ConsoleColor.White;
             Console.Write(text);
-            Console.ResetColor();
         }
     }
 }
