@@ -14,18 +14,28 @@ namespace WeekAsignment3_ConsoleMenu_SubMenus
         private const ConsoleColor Black = ConsoleColor.Black;
         private const ConsoleColor White = ConsoleColor.White;
 
-
-        public Menu(string title) : base(title)
+        public Menu(string title) : this(title, null)
         {}
-
-        public void AddMenuItem(string title, string content)
+        public Menu(string title, params MenuItemBase[] items) : base(title)
         {
-            _menuItems.Add(new MenuItem(title, content));
+            if (items != null)
+            {
+                foreach (MenuItemBase menuItem in items)
+                {
+                    AddMenuItem(menuItem);
+                }
+            }
         }
 
-        public void AddSubMenu()
+        public void AddMenuItem(params MenuItemBase[] items)
         {
-            
+            if (items != null)
+            {
+                foreach (MenuItemBase menuItem in items)
+                {
+                    _menuItems.Add(menuItem);
+                }
+            }
         }
 
         public void Start()
@@ -96,7 +106,6 @@ namespace WeekAsignment3_ConsoleMenu_SubMenus
         {
             Console.ForegroundColor = White;
             GetSelectedMenuItem().Select();
-            Console.ReadLine();
             Console.Title = Title;
             DrawMenu();
         }

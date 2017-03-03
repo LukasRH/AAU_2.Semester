@@ -22,6 +22,7 @@ namespace WeekAsignment3_ConsoleMenu_SubMenus
             Console.Title = Title;
             Console.Clear();
             Console.WriteLine($"{this.Title}\n\n{this.Content}\n\nPress Enter to return");
+            Console.ReadLine();
         }
     }
 }

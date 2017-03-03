@@ -10,13 +10,14 @@ namespace WeekAsignment3_ConsoleMenu_SubMenus
     {
         static void Main(string[] args)
         {
-            Menu Menu = new Menu("My Awesome Menu");
+            Menu menu = new Menu("My Awesome Menu");
 
-            Menu.AddMenuItem("point 1", "Bob the builder was here!");
-            Menu.AddMenuItem("point 2", "Bob the builder have yet to come here!");
-            Menu.AddMenuItem("point a bit longer", "Bob the builder will never come here!");
-
-            Menu.Start();
+            menu.AddMenuItem(new MenuItem("Punkt1"));
+            menu.AddMenuItem(new MenuItem("Punkt2"));
+            Menu underMenu = new Menu("undermenu", new MenuItem("Punkt1"), new MenuItem("Punkt1"));
+            menu.AddMenuItem(underMenu);
+            menu.AddMenuItem(new InfiniteMenu("Bob"));
+            menu.Start();
         }
     }
 }
