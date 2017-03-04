@@ -1,5 +1,7 @@
-﻿using System;
+﻿// 20166653 Lukas Rønsholt
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +18,8 @@ namespace WeekAsignment3_ConsoleMenu_SubMenus
             menu.AddMenuItem(new MenuItem("Punkt2"));
             Menu underMenu = new Menu("undermenu", new MenuItem("Punkt1"), new MenuItem("Punkt1"));
             menu.AddMenuItem(underMenu);
-            menu.AddMenuItem(new InfiniteMenu("Bob"));
+            menu.AddMenuItem(new InfiniteMenu("Infinite Menu"));
+            menu.AddMenuItem(new FileSystemMenu("Browse my C-Drive", new DirectoryInfo("c:\\")));
             menu.Start();
         }
     }

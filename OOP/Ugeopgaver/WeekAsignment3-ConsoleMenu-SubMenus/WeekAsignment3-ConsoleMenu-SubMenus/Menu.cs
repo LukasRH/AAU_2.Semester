@@ -9,10 +9,11 @@ namespace WeekAsignment3_ConsoleMenu_SubMenus
     class Menu : MenuItemBase
     {
         private bool _running = false;
-        private readonly List<MenuItemBase> _menuItems = new List<MenuItemBase>();
+        private List<MenuItemBase> _menuItems = new List<MenuItemBase>();
 
         private const ConsoleColor Black = ConsoleColor.Black;
         private const ConsoleColor White = ConsoleColor.White;
+        private const ConsoleColor Blue = ConsoleColor.Blue;
 
         public Menu(string title) : this(title, null)
         {}
@@ -54,14 +55,14 @@ namespace WeekAsignment3_ConsoleMenu_SubMenus
         {
             Console.Clear();
             Console.Title = this.Title;
-            CenterText(this.Title);
+            CenterText($"[[ {this.Title} ]]");
 
             foreach (MenuItemBase item in _menuItems)
             {
                 CenterText(item.Title);
             }
 
-            HighlightText(_menuItems[_menuItems.Count - 1].Title, _menuItems.Count);
+            HighlightText(_menuItems[0].Title, 1);
         }
 
         private void HandleInput()
@@ -157,6 +158,11 @@ namespace WeekAsignment3_ConsoleMenu_SubMenus
         public override void Select()
         {
             this.Start();
+        }
+
+        protected void SortMenuItems()
+        {
+            _menuItems = _menuItems.OrderBy(o => o.Title).ToList();
         }
     }
 }
