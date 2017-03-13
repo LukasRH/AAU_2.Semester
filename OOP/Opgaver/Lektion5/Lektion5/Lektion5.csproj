@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E9318EA9-E2F2-469C-B462-0111DA102464}</ProjectGuid>
+    <ProjectGuid>{62479AD6-C40B-41AF-B861-DE5C0ECC7F19}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>WeekAsignment3_ConsoleMenu_SubMenus</RootNamespace>
-    <AssemblyName>WeekAsignment3-ConsoleMenu-SubMenus</AssemblyName>
+    <RootNamespace>Lektion5</RootNamespace>
+    <AssemblyName>Lektion5</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,7 +34,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,20 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileSystemMenu.cs" />
-    <Compile Include="FileSystemMenu.FileMenuItem.cs" />
-    <Compile Include="InfiniteMenu.cs" />
-    <Compile Include="Menu.cs" />
-    <Compile Include="MenuItem.cs" />
-    <Compile Include="MenuItemBase.cs" />
+    <Compile Include="BirthDatePersonComparer.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RSSMenu.cs" />
-    <Compile Include="YouFuckedUp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <Compile Include="RSSMenu.RssMenuItem.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

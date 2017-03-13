@@ -20,6 +20,8 @@ namespace WeekAsignment3_ConsoleMenu_SubMenus
             menu.AddMenuItem(underMenu);
             menu.AddMenuItem(new InfiniteMenu("Infinite Menu"));
             menu.AddMenuItem(new FileSystemMenu("Browse my C-Drive", new DirectoryInfo("c:\\")));
+            menu.AddMenuItem(new RssMenu("http://www.dr.dk/nyheder/service/feeds/allenyheder"));
+
             menu.Start();
         }
     }
