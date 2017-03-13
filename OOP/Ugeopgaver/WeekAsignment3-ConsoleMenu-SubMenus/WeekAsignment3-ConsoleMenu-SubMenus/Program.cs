@@ -1,4 +1,4 @@
-﻿// 20166653 Lukas Rønsholt
+﻿//20166653 Lukas Rønsholt
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,7 +20,7 @@ namespace WeekAsignment3_ConsoleMenu_SubMenus
             menu.AddMenuItem(underMenu);
             menu.AddMenuItem(new InfiniteMenu("Infinite Menu"));
             menu.AddMenuItem(new FileSystemMenu("Browse my C-Drive", new DirectoryInfo("c:\\")));
-            menu.AddMenuItem(new RssMenu("http://www.dr.dk/nyheder/service/feeds/allenyheder"));
+            menu.AddMenuItem(new Menu("RSS Menu",new RssMenu("Computer Weekly RSS", "http://www.computerweekly.com/rss/IT-hardware.xml"), new DRNyhederMenu()));
 
             menu.Start();
         }

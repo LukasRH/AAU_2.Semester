@@ -13,18 +13,20 @@ namespace WeekAsignment3_ConsoleMenu_SubMenus
 		{
 		    public RssMenuItem(SyndicationItem item) : base(item.Title.Text)
 		    {
-		        _content = item.Summary.Text;
+		        _item = item;
 		    }
 
-		    private readonly string _content;
+		    private readonly SyndicationItem _item;
 
 		    public override void Select()
 		    {
 		        Console.Clear();
 		        Console.WriteLine(Title);
 		        Console.WriteLine();
-		        Console.WriteLine(_content);
-		        Console.ReadLine();
+		        Console.WriteLine(_item.Summary.Text);
+		        Console.WriteLine();
+                Console.WriteLine(_item.Links.First().Uri);
+                Console.ReadLine();
 		    }
 		}
     }
